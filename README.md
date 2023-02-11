@@ -41,3 +41,9 @@
 ```
 yarn start:dev
 ```
+
+5. Execute the seed to populate data into the DB
+
+```
+http://localhost:300/api/seed
+```

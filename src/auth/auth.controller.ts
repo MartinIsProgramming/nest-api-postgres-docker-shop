@@ -20,6 +20,12 @@ export class AuthController {
     return this.authService.login(loginAuthDto);
   }
 
+  @Get('check-status')
+  @Auth()
+  checkStatus(@GetUser() user: User) {
+    return this.authService.checkStatus(user);
+  }
+
   @Get('private')
   @Auth(ValidRoles.superUser)
   private(@GetUser('fullName') user: User) {

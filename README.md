@@ -47,3 +47,11 @@ yarn start:dev
 ```
 http://localhost:300/api/seed
 ```
+
+6. You can check some Swagger documentation on:
+
+```
+http://localhost:300/api
+```
+
+The Swagger documentation is far from being complete. I just put some examples in the code so you know how to keep documenting it on your own.

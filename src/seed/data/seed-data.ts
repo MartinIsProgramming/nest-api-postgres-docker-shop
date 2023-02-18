@@ -1,3 +1,6 @@
+import { ValidRoles } from 'src/auth/interfaces';
+import * as bcrypt from 'bcrypt';
+
 interface SeedProduct {
   description: string;
   images: string[];
@@ -11,14 +14,39 @@ interface SeedProduct {
   gender: 'men' | 'women' | 'kid' | 'unisex';
 }
 
+interface SeedUser {
+  email: string;
+  password: string;
+  fullName: string;
+  isActive: boolean;
+  roles: ValidRoles[];
+}
+
 type ValidSizes = 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL' | 'XXXL';
 type ValidTypes = 'shirts' | 'pants' | 'hoodies' | 'hats';
 
 interface SeedData {
+  users: SeedUser[];
   products: SeedProduct[];
 }
 
 export const initialData: SeedData = {
+  users: [
+    {
+      email: 'martin@example.com',
+      fullName: 'Martin Rodriguez',
+      password: bcrypt.hashSync('123456', 10),
+      roles: [ValidRoles.admin],
+      isActive: true,
+    },
+    {
+      email: 'erik@example.com',
+      fullName: 'Erik Smith',
+      password: bcrypt.hashSync('123456', 10),
+      roles: [ValidRoles.user],
+      isActive: true,
+    },
+  ],
   products: [
     {
       description:
